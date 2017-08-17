@@ -1,0 +1,16 @@
+<project name="EE" default="jar">
+	<path id="classpath">
+		<fileset dir="lib">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+	<target name="compile">
+		<mkdir dir="build"/>
+		<javac srcdir="src" destdir="build" classpathref="classpath" includeantruntime="false"/>
+	</target>
+	<target name="jar" depends="compile">
+		<jar jarfile="lib/ee.jar">
+			<fileset dir="build" includes="**/*"/>
+		</jar>
+	</target>
+</project>

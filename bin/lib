@@ -1,0 +1,11 @@
+#!/bin/bash
+
+run() {
+	CP=""
+	for JAR in `ls ../lib/*.jar`; do
+		CP="$CP:$JAR"
+	done
+	CLS=$1
+	shift
+	java -classpath $CP $CLS "$@"
+}
